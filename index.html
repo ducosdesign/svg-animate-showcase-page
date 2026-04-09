@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Animata | Zero-G v13.5</title>
+    <title>SVG Animata | 20 Quirky Layers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
@@ -14,41 +14,62 @@
 
         .page { height: 100vh; width: 100%; scroll-snap-align: start; scroll-snap-stop: always; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
 
+        /* Space Environment */
         .stars { position: absolute; inset: 0; background-image: radial-gradient(circle at center, #ffffff 1px, transparent 1px); background-size: 80px 80px; opacity: 0.15; animation: star-drift 120s linear infinite; }
         @keyframes star-drift { from { transform: translateY(0); } to { transform: translateY(-1000px); } }
 
-        .space-item { position: relative; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); padding: 20px; z-index: 10; }
-        .showcase-svg { width: 130px; height: 130px; display: block; object-fit: contain; }
+        /* Floating Base Logic */
+        .space-item { position: relative; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); padding: 20px; z-index: 10; display: flex; flex-direction: column; align-items: center; }
+        .showcase-svg { width: 120px; height: 120px; display: block; object-fit: contain; }
         
-        .drift-fast { animation: float-drift 5s infinite ease-in-out; }
-        .drift-slow { animation: float-drift 9s infinite ease-in-out reverse; }
-        .drift-alt { animation: float-drift 7s infinite ease-in-out 1.5s; }
+        .drift-1 { animation: float-drift 6s infinite ease-in-out; }
+        .drift-2 { animation: float-drift 8s infinite ease-in-out reverse; }
+        .drift-3 { animation: float-drift 7s infinite ease-in-out 1s; }
+        .drift-4 { animation: float-drift 9s infinite ease-in-out -2s; }
 
         @keyframes float-drift {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(10px, -25px) rotate(8deg); }
+            50% { transform: translate(10px, -20px) rotate(5deg); }
         }
 
-        .hover-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #14b8a6; color: #000; font-size: 7px; font-weight: 900; padding: 2px 10px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; box-shadow: 0 0 15px rgba(20,184,166,0.4); z-index: 20; }
-        .name-label { position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); color: #475569; font-family: monospace; font-size: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+        /* Labels */
+        .hover-tag { position: absolute; top: -10px; background: #14b8a6; color: #000; font-size: 7px; font-weight: 900; padding: 2px 10px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; box-shadow: 0 0 15px rgba(20,184,166,0.4); }
+        .name-label { margin-top: 15px; color: #64748b; font-family: monospace; font-size: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
 
-        @keyframes loop-rainbow { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
-        @keyframes loop-pulse { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.15); filter: brightness(1.3); } }
-        @keyframes loop-float-high { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
-        @keyframes loop-jello { 0%, 11%, 100% { transform: none; } 22% { transform: skewX(-12deg) skewY(-12deg); } 33% { transform: skewX(6deg) skewY(6deg); } }
-        @keyframes hover-vortex { 100% { transform: rotate(720deg) scale(0); opacity: 0; } }
-        @keyframes hover-glitch { 0% { clip-path: inset(10% 0 80% 0); transform: translate(-10px); } 20% { clip-path: inset(80% 0 10% 0); transform: translate(10px); } 40% { clip-path: none; } }
-        @keyframes hover-electric { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(4) drop-shadow(0 0 20px cyan); transform: scale(1.2); } }
-        @keyframes hover-rubber { 0% { transform: scale(1); } 30% { transform: scale(1.3, 0.7); } 60% { transform: scale(0.7, 1.3); } 100% { transform: scale(1); } }
+        /* --- THE 20 ANIMATION ENGINES --- */
+        @keyframes svga-vortex { 100% { transform: rotate(720deg) scale(0); opacity: 0; } }
+        @keyframes svga-glitch { 0% { clip-path: inset(10% 0 80% 0); transform: translate(-10px); } 20% { clip-path: inset(80% 0 10% 0); transform: translate(10px); } 40% { clip-path: none; } }
+        @keyframes svga-rainbow { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
+        @keyframes svga-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        @keyframes svga-electric { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(3) drop-shadow(0 0 20px cyan); } }
+        @keyframes svga-rubber { 0% { transform: scale(1); } 30% { transform: scale(1.3, 0.7); } 60% { transform: scale(0.7, 1.3); } 100% { transform: scale(1); } }
+        @keyframes svga-jello { 0%, 11%, 100% { transform: none; } 22% { transform: skewX(-12deg) skewY(-12deg); } 33% { transform: skewX(6deg) skewY(6deg); } }
+        @keyframes svga-strobe { 0%, 100% { opacity: 1; } 50% { opacity: 0.1; } }
+        @keyframes svga-float-high { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+        @keyframes svga-echo { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; filter: blur(8px); } }
+        @keyframes svga-spin-3d { from { transform: perspective(500px) rotate3d(1, 1, 0, 0deg); } to { transform: perspective(500px) rotate3d(1, 1, 0, 360deg); } }
+        @keyframes svga-scan { 0% { clip-path: inset(0 0 98% 0); } 50% { clip-path: inset(98% 0 0 0); } 100% { clip-path: inset(0 0 98% 0); } }
+        @keyframes svga-tada { 0% { transform: scale(1); } 10%, 20% { transform: scale(0.9) rotate(-3deg); } 30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); } 100% { transform: scale(1); } }
+        @keyframes svga-liquid { 0%, 100% { border-radius: 50%; } 50% { border-radius: 30% 70% 70% 30%; } }
+        @keyframes svga-neon { from { filter: drop-shadow(0 0 2px #14b8a6); } to { filter: drop-shadow(0 0 25px #14b8a6); } }
 
-        .auto-rainbow { animation: loop-rainbow 5s infinite linear; }
-        .auto-pulse { animation: loop-pulse 2s infinite ease-in-out; }
-        .auto-float { animation: loop-float-high 4s infinite ease-in-out; }
-        .auto-jello { animation: loop-jello 3s infinite ease-in-out; }
-        .trigger-box:hover .fx-vortex { animation: hover-vortex 1.2s forwards; }
-        .trigger-box:hover .fx-glitch { animation: hover-glitch 0.4s infinite; }
-        .trigger-box:hover .fx-electric { animation: hover-electric 0.2s infinite; }
-        .trigger-box:hover .fx-rubber { animation: hover-rubber 0.6s infinite; }
+        /* Classes */
+        .fx-rainbow { animation: svga-rainbow 5s infinite linear; }
+        .fx-pulse { animation: svga-pulse 2s infinite ease-in-out; }
+        .fx-jello { animation: svga-jello 3s infinite; }
+        .fx-neon { animation: svga-neon 1.5s infinite alternate; }
+        .fx-liquid { animation: svga-liquid 3s infinite; }
+        .fx-float { animation: svga-float-high 4s infinite ease-in-out; }
+
+        .trigger-box:hover .fx-vortex { animation: svga-vortex 1.2s forwards; }
+        .trigger-box:hover .fx-glitch { animation: svga-glitch 0.4s infinite; }
+        .trigger-box:hover .fx-electric { animation: svga-electric 0.2s infinite; }
+        .trigger-box:hover .fx-rubber { animation: svga-rubber 0.6s infinite; }
+        .trigger-box:hover .fx-echo { animation: svga-echo 0.8s infinite; }
+        .trigger-box:hover .fx-spin3d { animation: svga-spin-3d 3s infinite linear; }
+        .trigger-box:hover .fx-tada { animation: svga-tada 1s infinite; }
+        .trigger-box:hover .fx-strobe { animation: svga-strobe 0.1s infinite; }
+        .trigger-box:hover .fx-scan { animation: svga-scan 1s infinite linear; }
     </style>
 </head>
 <body class="bg-slate-950">
@@ -59,73 +80,81 @@
         <section class="page">
             <nav class="absolute top-8 w-full px-12 flex justify-between items-center z-50">
                 <span class="font-black text-2xl italic tracking-tighter text-teal-400">SVG ANIMATA</span>
-                <a href="https://animation-generator-ten.vercel.app/" target="_blank" class="bg-teal-600 text-white text-[10px] font-black py-2.5 px-6 rounded-full hover:bg-white hover:text-teal-600 transition-all shadow-lg active:translate-y-1">OPEN GENERATOR →</a>
+                <a href="https://animation-generator-ten.vercel.app/" target="_blank" class="bg-teal-600 text-white text-[10px] font-black py-2 px-6 rounded-full hover:bg-white hover:text-teal-600 transition-all">OPEN GENERATOR →</a>
             </nav>
             <div class="text-center z-10">
-                <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/lizducos-dd-white-1.svg" class="w-64 h-auto drift-fast mx-auto mb-10 auto-pulse">
-                <h1 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-2 leading-none italic">Portfolio</h1>
-                <p class="text-teal-500 font-mono text-[10px] uppercase tracking-[0.5em]">Prompt Engineering by Emeliza "Liz" Ducos</p>
+                <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/lizducos-dd-white-1.svg" class="w-64 h-auto drift-1 mx-auto mb-10 fx-neon">
+                <h1 class="text-6xl md:text-9xl font-black tracking-tighter uppercase mb-2">QUIRKY 20</h1>
+                <p class="text-teal-500 font-mono text-[10px] uppercase tracking-[0.4em]">Prompt Engineering by Emeliza "Liz" Ducos</p>
+            </div>
+        </section>
+
+        <section class="page bg-slate-900/20">
+            <div class="grid grid-cols-2 gap-20">
+                <div class="space-item drift-1 fx-rainbow"><img src="https://api.iconify.design/fluent-emoji:party-popper.svg" class="showcase-svg"><span class="name-label">01. Rainbow Hue</span></div>
+                <div class="space-item drift-2 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:alien-monster.svg" class="showcase-svg fx-vortex"><span class="name-label">02. Vortex Spin</span></div>
+                <div class="space-item drift-3 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:rocket.svg" class="showcase-svg fx-glitch"><span class="name-label">03. Cyber Glitch</span></div>
+                <div class="space-item drift-4 fx-jello"><img src="https://api.iconify.design/fluent-emoji:ghost.svg" class="showcase-svg"><span class="name-label">04. Jello Wobble</span></div>
             </div>
         </section>
 
         <section class="page">
-            <div class="grid grid-cols-2 gap-24 md:gap-40">
-                <div class="space-item drift-fast auto-rainbow"><img src="https://api.iconify.design/fluent-emoji:party-popper.svg" class="showcase-svg"><span class="name-label">Rainbow Hue</span></div>
-                <div class="space-item drift-slow trigger-box">
-                    <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:alien-monster.svg" class="showcase-svg fx-vortex"><span class="name-label">Vortex Spin</span>
-                </div>
-                <div class="space-item drift-alt trigger-box">
-                    <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:rocket.svg" class="showcase-svg fx-glitch"><span class="name-label">Cyber Glitch</span>
-                </div>
-                <div class="space-item drift-slow auto-jello"><img src="https://api.iconify.design/fluent-emoji:ghost.svg" class="showcase-svg"><span class="name-label">Jello Wobble</span></div>
+            <div class="grid grid-cols-2 gap-20">
+                <div class="space-item drift-2 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:unicorn.svg" class="showcase-svg fx-rubber"><span class="name-label">05. Rubber Band</span></div>
+                <div class="space-item drift-4 fx-pulse"><img src="https://api.iconify.design/fluent-emoji:heart-on-fire.svg" class="showcase-svg"><span class="name-label">06. Heart Pulse</span></div>
+                <div class="space-item drift-1 fx-rainbow"><img src="https://api.iconify.design/fluent-emoji:crystal-ball.svg" class="showcase-svg"><span class="name-label">07. Prism Shift</span></div>
+                <div class="space-item drift-3 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:biohazard.svg" class="showcase-svg fx-electric"><span class="name-label">08. Electric Storm</span></div>
+            </div>
+        </section>
+
+        <section class="page bg-slate-900/20">
+            <div class="grid grid-cols-2 gap-20">
+                <div class="space-item drift-4 fx-float"><img src="https://api.iconify.design/fluent-emoji:jellyfish.svg" class="showcase-svg"><span class="name-label">09. Fluid Float</span></div>
+                <div class="space-item drift-1 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:vulcan-salute.svg" class="showcase-svg fx-glitch"><span class="name-label">10. Neural Glitch</span></div>
+                <div class="space-item drift-2 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:smiling-face-with-heart-eyes.svg" class="showcase-svg fx-rubber"><span class="name-label">11. Squish Pop</span></div>
+                <div class="space-item drift-3 fx-jello"><img src="https://api.iconify.design/fluent-emoji:test-tube.svg" class="showcase-svg"><span class="name-label">12. Tectonic</span></div>
             </div>
         </section>
 
         <section class="page">
-            <div class="grid grid-cols-2 gap-24 md:gap-40">
-                <div class="space-item drift-alt trigger-box">
-                    <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:unicorn.svg" class="showcase-svg fx-rubber"><span class="name-label">Rubber Band</span>
-                </div>
-                <div class="space-item drift-fast auto-pulse"><img src="https://api.iconify.design/fluent-emoji:heart-on-fire.svg" class="showcase-svg"><span class="name-label">Neon Pulse</span></div>
-                <div class="space-item drift-slow auto-rainbow"><img src="https://api.iconify.design/fluent-emoji:crystal-ball.svg" class="showcase-svg"><span class="name-label">Prism Shift</span></div>
-                <div class="space-item drift-fast trigger-box">
-                    <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:biohazard.svg" class="showcase-svg fx-electric"><span class="name-label">Electric Storm</span>
-                </div>
+            <div class="grid grid-cols-2 gap-20">
+                <div class="space-item drift-1 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:crown.svg" class="showcase-svg fx-tada"><span class="name-label">13. Tada!</span></div>
+                <div class="space-item drift-3 fx-liquid"><img src="https://api.iconify.design/fluent-emoji:doughnut.svg" class="showcase-svg"><span class="name-label">14. Liquid Wobble</span></div>
+                <div class="space-item drift-2 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:fire.svg" class="showcase-svg fx-echo"><span class="name-label">15. Echo Burn</span></div>
+                <div class="space-item drift-4 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:flying-saucer.svg" class="showcase-svg fx-spin3d"><span class="name-label">16. 3D Orbit</span></div>
+            </div>
+        </section>
+
+        <section class="page bg-slate-900/20">
+            <div class="grid grid-cols-2 gap-20">
+                <div class="space-item drift-1 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:robot.svg" class="showcase-svg fx-scan"><span class="name-label">17. Cyber Scan</span></div>
+                <div class="space-item drift-2 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:sparkles.svg" class="showcase-svg fx-strobe"><span class="name-label">18. Magic Strobe</span></div>
+                <div class="space-item drift-3 fx-neon"><img src="https://api.iconify.design/fluent-emoji:clapper-board.svg" class="showcase-svg"><span class="name-label">19. Neon Action</span></div>
+                <div class="space-item drift-4 trigger-box"><div class="hover-tag">Hover Me</div><img src="https://api.iconify.design/fluent-emoji:dna.svg" class="showcase-svg fx-rubber"><span class="name-label">20. DNA Bounce</span></div>
             </div>
         </section>
 
         <section class="page bg-black">
             <div class="max-w-4xl w-full text-center px-6 z-10">
-                <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-32 h-auto auto-pulse mx-auto mb-10 opacity-50">
-                
-                <div class="mb-16">
+                <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-32 h-auto mx-auto mb-10 fx-pulse opacity-50">
+                <div class="mb-12">
                     <a href="https://animation-generator-ten.vercel.app/" target="_blank" 
-                       class="inline-block bg-teal-600 hover:bg-white hover:text-black text-white px-12 py-5 rounded-full font-black tracking-widest transition-all shadow-[0_0_30px_rgba(20,184,166,0.3)] uppercase text-sm">
+                       class="inline-block bg-teal-600 hover:bg-white hover:text-black text-white px-10 py-4 rounded-full font-black tracking-widest transition-all shadow-xl uppercase text-xs">
                         Generate Your Own →
                     </a>
                 </div>
-                
-                <div class="flex flex-col md:flex-row gap-8 text-left justify-center items-stretch mb-16">
-                    <div class="p-10 rounded-[3rem] border border-slate-800 bg-slate-900/30 backdrop-blur-2xl flex-1">
+                <div class="flex flex-col md:flex-row gap-8 text-left justify-center mb-12">
+                    <div class="p-8 rounded-[2rem] border border-slate-800 bg-slate-900/30 flex-1">
                         <h4 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-4">Metadata</h4>
-                        <p class="text-[11px] text-slate-400 mb-2"><b>Engineer:</b> Emeliza "Liz" Ducos</p>
-                        <p class="text-[11px] text-slate-400"><b>Engine:</b> SVG Animata v13.5</p>
+                        <p class="text-[11px] text-slate-400"><b>Engineer:</b> Emeliza "Liz" Ducos</p>
+                        <p class="text-[11px] text-slate-400"><b>Collection:</b> 20 Quirky Layers v13.6</p>
                     </div>
-                    <div class="p-10 rounded-[3rem] border border-slate-800 bg-slate-900/30 backdrop-blur-2xl flex-1">
+                    <div class="p-8 rounded-[2rem] border border-slate-800 bg-slate-900/30 flex-1">
                         <h4 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-4">Legal</h4>
-                        <p class="text-[10px] text-slate-500 leading-snug">
-                            Interactive layers optimized for CSS hardware acceleration. Visual icons provided via Iconify API. No commercial usage intended.
-                        </p>
+                        <p class="text-[10px] text-slate-500 leading-snug">Visual icons provided via Iconify Fluent Emoji. No commercial usage intended.</p>
                     </div>
                 </div>
-
-                <footer class="opacity-10 text-[9px] font-black tracking-[1.5em] uppercase border-t border-slate-900 pt-8">
-                    LIZ DUCOS SPACE ARCHIVE 2026
-                </footer>
+                <footer class="opacity-10 text-[9px] font-black tracking-[1.5em] uppercase border-t border-slate-900 pt-8">LIZ DUCOS SPACE ARCHIVE 2026</footer>
             </div>
         </section>
     </div>
