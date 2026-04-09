@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Animata | Zero-G v13.3</title>
+    <title>SVG Animata | Zero-G v13.4</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
@@ -32,8 +32,9 @@
             50% { transform: translate(10px, -25px) rotate(8deg); }
         }
 
-        /* Hover Instruction Tag */
-        .hover-tag { position: absolute; top: -5px; left: 50%; transform: translateX(-50%); background: #14b8a6; color: #000; font-size: 7px; font-weight: 900; padding: 2px 10px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; box-shadow: 0 0 15px rgba(20,184,166,0.4); }
+        /* Labels */
+        .hover-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #14b8a6; color: #000; font-size: 7px; font-weight: 900; padding: 2px 10px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; box-shadow: 0 0 15px rgba(20,184,166,0.4); z-index: 20; }
+        .name-label { position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); color: #475569; font-family: monospace; font-size: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
 
         /* --- THE ANIMATION ENGINES --- */
         
@@ -73,23 +74,23 @@
             </nav>
             <div class="text-center z-10">
                 <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/lizducos-dd-white-1.svg" class="w-64 h-auto drift-fast mx-auto mb-10 auto-pulse">
-                <h1 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-2 leading-none">Balanced</h1>
+                <h1 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-2 leading-none">Portfolio</h1>
                 <p class="text-teal-500 font-mono text-[10px] uppercase tracking-[0.5em]">Prompt Engineering by Emeliza "Liz" Ducos</p>
             </div>
         </section>
 
         <section class="page">
             <div class="grid grid-cols-2 gap-24 md:gap-40">
-                <div class="space-item drift-fast auto-rainbow"><img src="https://api.iconify.design/fluent-emoji:party-popper.svg" class="showcase-svg"></div>
+                <div class="space-item drift-fast auto-rainbow"><img src="https://api.iconify.design/fluent-emoji:party-popper.svg" class="showcase-svg"><span class="name-label">Rainbow Hue</span></div>
                 <div class="space-item drift-slow trigger-box">
                     <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:alien-monster.svg" class="showcase-svg fx-vortex">
+                    <img src="https://api.iconify.design/fluent-emoji:alien-monster.svg" class="showcase-svg fx-vortex"><span class="name-label">Vortex Spin</span>
                 </div>
                 <div class="space-item drift-alt trigger-box">
                     <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:rocket.svg" class="showcase-svg fx-glitch">
+                    <img src="https://api.iconify.design/fluent-emoji:rocket.svg" class="showcase-svg fx-glitch"><span class="name-label">Cyber Glitch</span>
                 </div>
-                <div class="space-item drift-slow auto-jello"><img src="https://api.iconify.design/fluent-emoji:ghost.svg" class="showcase-svg"></div>
+                <div class="space-item drift-slow auto-jello"><img src="https://api.iconify.design/fluent-emoji:ghost.svg" class="showcase-svg"><span class="name-label">Jello Wobble</span></div>
             </div>
         </section>
 
@@ -97,29 +98,29 @@
             <div class="grid grid-cols-2 gap-24 md:gap-40">
                 <div class="space-item drift-alt trigger-box">
                     <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:unicorn.svg" class="showcase-svg fx-rubber">
+                    <img src="https://api.iconify.design/fluent-emoji:unicorn.svg" class="showcase-svg fx-rubber"><span class="name-label">Rubber Band</span>
                 </div>
-                <div class="space-item drift-fast auto-pulse"><img src="https://api.iconify.design/fluent-emoji:heart-on-fire.svg" class="showcase-svg"></div>
-                <div class="space-item drift-slow auto-rainbow"><img src="https://api.iconify.design/fluent-emoji:crystal-ball.svg" class="showcase-svg"></div>
+                <div class="space-item drift-fast auto-pulse"><img src="https://api.iconify.design/fluent-emoji:heart-on-fire.svg" class="showcase-svg"><span class="name-label">Neon Pulse</span></div>
+                <div class="space-item drift-slow auto-rainbow"><img src="https://api.iconify.design/fluent-emoji:crystal-ball.svg" class="showcase-svg"><span class="name-label">Prism Shift</span></div>
                 <div class="space-item drift-fast trigger-box">
                     <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:biohazard.svg" class="showcase-svg fx-electric">
+                    <img src="https://api.iconify.design/fluent-emoji:biohazard.svg" class="showcase-svg fx-electric"><span class="name-label">Electric Storm</span>
                 </div>
             </div>
         </section>
 
         <section class="page">
             <div class="grid grid-cols-2 gap-24 md:gap-40">
-                <div class="space-item drift-slow auto-float"><img src="https://api.iconify.design/fluent-emoji:jellyfish.svg" class="showcase-svg"></div>
+                <div class="space-item drift-slow auto-float"><img src="https://api.iconify.design/fluent-emoji:jellyfish.svg" class="showcase-svg"><span class="name-label">Fluid Float</span></div>
                 <div class="space-item drift-fast trigger-box">
                     <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:vulcan-salute.svg" class="showcase-svg fx-glitch">
+                    <img src="https://api.iconify.design/fluent-emoji:vulcan-salute.svg" class="showcase-svg fx-glitch"><span class="name-label">Neural Glitch</span>
                 </div>
                 <div class="space-item drift-slow trigger-box">
                     <div class="hover-tag">Hover Me</div>
-                    <img src="https://api.iconify.design/fluent-emoji:smiling-face-with-heart-eyes.svg" class="showcase-svg fx-rubber">
+                    <img src="https://api.iconify.design/fluent-emoji:smiling-face-with-heart-eyes.svg" class="showcase-svg fx-rubber"><span class="name-label">Squish Pop</span>
                 </div>
-                <div class="space-item drift-alt auto-jello"><img src="https://api.iconify.design/fluent-emoji:test-tube.svg" class="showcase-svg"></div>
+                <div class="space-item drift-alt auto-jello"><img src="https://api.iconify.design/fluent-emoji:test-tube.svg" class="showcase-svg"><span class="name-label">Tectonic Wobble</span></div>
             </div>
         </section>
 
@@ -129,20 +130,20 @@
                 
                 <div class="flex flex-col md:flex-row gap-8 text-left justify-center items-stretch mb-16">
                     <div class="p-10 rounded-[3rem] border border-slate-800 bg-slate-900/30 backdrop-blur-2xl flex-1">
-                        <h4 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-4">Space Metadata</h4>
+                        <h4 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-4">Metadata</h4>
                         <p class="text-[11px] text-slate-400 mb-2"><b>Engineer:</b> Emeliza "Liz" Ducos</p>
-                        <p class="text-[11px] text-slate-400"><b>Interaction:</b> Hybrid Balanced v13.3</p>
+                        <p class="text-[11px] text-slate-400"><b>Engine:</b> SVG Animata v13.4</p>
                     </div>
                     <div class="p-10 rounded-[3rem] border border-slate-800 bg-slate-900/30 backdrop-blur-2xl flex-1">
-                        <h4 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-4">Disclaimer</h4>
+                        <h4 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-4">Disclosure</h4>
                         <p class="text-[10px] text-slate-500 leading-snug">
-                            All vector layers are hardware accelerated. Visual icons provided via Iconify API. No commercial usage intended.
+                            Interactive layers optimized for CSS hardware acceleration. Visual icons provided via Iconify API. No commercial usage intended.
                         </p>
                     </div>
                 </div>
 
                 <footer class="opacity-10 text-[9px] font-black tracking-[1.5em] uppercase border-t border-slate-900 pt-8">
-                    SVG ANIMATA ARCHIVE 2026
+                    LIZ DUCOS SPACE ARCHIVE 2026
                 </footer>
             </div>
         </section>
