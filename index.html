@@ -9,14 +9,14 @@
         html { scroll-behavior: smooth; }
         body { background-color: #020617; color: #f8fafc; margin: 0; overflow: hidden; }
         
-        /* Snap Scroll Architecture - Mandatory for the "Page Flip" feel */
+        /* Snap Scroll Architecture */
         .viewport-stack {
             height: 100vh;
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
-        .viewport-stack::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .viewport-stack::-webkit-scrollbar { display: none; }
 
         .page {
             height: 100vh;
@@ -36,9 +36,23 @@
         .gallery-box { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 2.5rem; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s; cursor: crosshair; }
         .gallery-box:hover { border-color: #14b8a6; background: #134e4a30; }
         
-        /* Hover Hint Tooltip */
-        .hover-hint { position: absolute; top: 15px; background: #14b8a6; color: #000; font-size: 8px; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; opacity: 0; transform: translateY(5px); transition: all 0.3s; pointer-events: none; }
-        .gallery-box:hover .hover-hint { opacity: 1; transform: translateY(0); }
+        /* Persistent Instruction Tag */
+        .hover-hint { 
+            position: absolute; 
+            top: 15px; 
+            background: #14b8a6; 
+            color: #000; 
+            font-size: 8px; 
+            font-weight: 900; 
+            padding: 2px 10px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            opacity: 1; /* Always Visible */
+            transform: translateY(0); 
+            pointer-events: none;
+            letter-spacing: 0.05em;
+        }
+        
         .fx-label { position: absolute; bottom: 12px; font-family: monospace; font-size: 9px; font-weight: bold; text-transform: uppercase; color: #475569; letter-spacing: 0.1em; }
 
         /* --- THE 20-FX KEYFRAME ENGINE --- */
@@ -98,7 +112,7 @@
                 <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-2">Portfolio</h1>
                 <p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.4em]">Prompt Engineering by Emeliza "Liz" Ducos</p>
             </div>
-            <div class="absolute bottom-10 animate-bounce opacity-20 text-[10px] font-bold uppercase tracking-widest">Scroll to Flip Page</div>
+            <div class="absolute bottom-10 animate-pulse text-teal-900 text-[10px] font-bold uppercase tracking-widest">Scroll to Flip Page</div>
         </section>
 
         <section class="page bg-slate-900">
@@ -147,12 +161,12 @@
                     <div class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
                         <h4 class="text-[10px] font-black text-teal-500 uppercase tracking-widest mb-4">Project Metadata</h4>
                         <p class="text-[11px] text-slate-400 mb-2"><b>Prompt Engineer:</b> Emeliza "Liz" Ducos</p>
-                        <p class="text-[11px] text-slate-400 mb-2"><b>Engine:</b> SVG Animata v12.0</p>
-                        <p class="text-[11px] text-slate-400"><b>Interaction:</b> Snap-Scroll + Hover Triggers</p>
+                        <p class="text-[11px] text-slate-400 mb-2"><b>Engine:</b> SVG Animata v12.1</p>
+                        <p class="text-[11px] text-slate-400"><b>Interaction:</b> Persistent User Guidance Tags</p>
                     </div>
                     <div class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
-                        <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Legal Disclaimer</h4>
-                        <p class="text-[10px] text-slate-500 leading-snug">
+                        <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Disclaimer</h4>
+                        <p class="text-[10px] text-slate-500 leading-snug uppercase">
                             Trademarks and logos displayed are property of their respective owners. No affiliation or endorsement is implied. This site serves as a technical portfolio for CSS motion research.
                         </p>
                     </div>
