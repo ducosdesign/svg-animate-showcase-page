@@ -9,6 +9,7 @@
         html { scroll-behavior: smooth; }
         body { background-color: #020617; color: #f8fafc; margin: 0; overflow: hidden; }
         
+        /* Snap Scroll Architecture */
         .viewport-stack {
             height: 100vh;
             overflow-y: scroll;
@@ -18,16 +19,10 @@
         .viewport-stack::-webkit-scrollbar { display: none; }
 
         .page {
-            height: 100vh;
-            width: 100%;
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 2rem;
+            height: 100vh; width: 100%;
+            scroll-snap-align: start; scroll-snap-stop: always;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative; padding: 2rem;
         }
 
         /* SVG & Gallery Components */
@@ -35,6 +30,7 @@
         .gallery-box { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 2.5rem; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s; cursor: crosshair; }
         .gallery-box:hover { border-color: #14b8a6; background: #134e4a30; transform: translateY(-5px); }
         
+        /* Persistent Instruction Tag */
         .hover-hint { 
             position: absolute; top: 15px; background: #14b8a6; color: #000; font-size: 8px; font-weight: 900; 
             padding: 2px 10px; border-radius: 4px; text-transform: uppercase; opacity: 1; pointer-events: none;
@@ -63,7 +59,7 @@
         @keyframes svga-rubber { 0% { transform: scale3d(1, 1, 1); } 30% { transform: scale3d(1.25, 0.75, 1); } 40% { transform: scale3d(0.75, 1.25, 1); } 100% { transform: scale3d(1, 1, 1); } }
         @keyframes svga-strobe { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* Interaction Classes */
+        /* Classes */
         .loop-neon { animation: svga-neon 2s infinite alternate; }
         .gallery-box:hover .fx-vortex { animation: svga-vortex 1.5s forwards; }
         .gallery-box:hover .fx-glitch { animation: svga-glitch 0.6s infinite; }
@@ -89,50 +85,51 @@
 
     <div class="viewport-stack">
         
-        <section class="page bg-slate-950">
+        <section class="page">
             <nav class="absolute top-8 w-full px-12 flex justify-between items-center z-50">
                 <span class="font-black text-2xl italic text-teal-400 tracking-tighter">SVG ANIMATA</span>
-                <a href="https://animation-generator-ten.vercel.app/" target="_blank" class="bg-teal-600 text-white text-[10px] font-bold py-2 px-6 rounded-full hover:bg-white hover:text-black transition-all">LAUNCH GENERATOR →</a>
+                <a href="https://animation-generator-ten.vercel.app/" target="_blank" class="bg-teal-600 text-white text-[10px] font-bold py-2 px-6 rounded-full hover:bg-white hover:text-black transition-all">ANIMATE YOUR OWN →</a>
             </nav>
             <div class="text-center">
                 <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/lizducos-dd-white-1.svg" class="w-64 h-auto loop-neon mx-auto mb-6">
-                <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-2">Stable Edition</h1>
+                <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-2">Iconify v12.5</h1>
                 <p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.4em]">Prompt Engineering by Emeliza "Liz" Ducos</p>
             </div>
-            <div class="absolute bottom-10 animate-pulse text-teal-900 text-[10px] font-bold uppercase tracking-widest text-center w-full">Scroll to Flip Page</div>
+            <div class="absolute bottom-10 animate-pulse text-teal-900 text-[10px] font-bold uppercase tracking-widest text-center w-full">Scroll to Discover</div>
         </section>
 
         <section class="page bg-slate-900">
             <div class="grid grid-cols-2 gap-4 max-w-5xl w-full">
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://www.google.com/chrome/static/images/chrome-logo.svg" class="showcase-svg fx-glitch"><span class="fx-label">Cyber Glitch</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/slack.svg" class="showcase-svg fx-slice-v"><span class="fx-label">Vertical Slice</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/microsoft.svg" class="showcase-svg fx-vortex"><span class="fx-label">Vortex Spin</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/apple.svg" class="showcase-svg fx-slice-h" style="filter:invert(1);"><span class="fx-label">Horizontal Slice</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:google-icon.svg" class="showcase-svg fx-glitch"><span class="fx-label">Cyber Glitch</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:slack-icon.svg" class="showcase-svg fx-slice-v"><span class="fx-label">Vertical Slice</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:microsoft-icon.svg" class="showcase-svg fx-vortex"><span class="fx-label">Vortex Spin</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:apple.svg" class="showcase-svg fx-slice-h" style="filter:invert(1);"><span class="fx-label">Horizontal Slice</span></div>
             </div>
         </section>
 
         <section class="page bg-slate-950">
             <div class="grid grid-cols-2 gap-4 max-w-5xl w-full">
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/airbnb.svg" class="showcase-svg fx-echo"><span class="fx-label">Echo Blur</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/figma.svg" class="showcase-svg fx-prism"><span class="fx-label">Prism Shift</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg" class="showcase-svg fx-liquid"><span class="fx-label">Liquid Wobble</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/react.svg" class="showcase-svg fx-float"><span class="fx-label">Float 3D</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:airbnb-icon.svg" class="showcase-svg fx-echo"><span class="fx-label">Echo Blur</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:figma.svg" class="showcase-svg fx-prism"><span class="fx-label">Prism Shift</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:instagram-icon.svg" class="showcase-svg fx-liquid"><span class="fx-label">Liquid Wobble</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:react.svg" class="showcase-svg fx-float"><span class="fx-label">Float 3D</span></div>
             </div>
         </section>
 
         <section class="page bg-slate-900">
             <div class="grid grid-cols-2 gap-4 max-w-5xl w-full">
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/html5.svg" class="showcase-svg fx-shimmer"><span class="fx-label">Shimmer</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/css3.svg" class="showcase-svg fx-scan"><span class="fx-label">CRT Scanline</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nodedotjs.svg" class="showcase-svg fx-pulse"><span class="fx-label">Pulse</span></div>
-                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/firefoxbrowser.svg" class="showcase-svg fx-rubber"><span class="fx-label">Rubber Band</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:html-5.svg" class="showcase-svg fx-shimmer"><span class="fx-label">Shimmer</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:css-3.svg" class="showcase-svg fx-scan"><span class="fx-label">CRT Scanline</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:nodejs-icon.svg" class="showcase-svg fx-pulse"><span class="fx-label">Pulse</span></div>
+                <div class="gallery-box"><div class="hover-hint">Hover to Trigger</div><img src="https://api.iconify.design/logos:firefox.svg" class="showcase-svg fx-rubber"><span class="fx-label">Rubber Band</span></div>
             </div>
         </section>
 
         <section class="page bg-black">
             <div class="max-w-4xl w-full text-center px-6">
                 <div class="mb-12">
-                   <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/lizducos-dd-white-1.svg" class="w-56 mx-auto mb-4">
+                   <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-32 mx-auto mb-10 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                   
                    <div class="inline-block bg-red-950/20 border border-red-900 p-8 rounded-3xl relative">
                         <div class="hover-hint bg-red-500">Caution: High Freq</div>
                         <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/lizducos-dd-white-1.svg" class="w-48 fx-strobe">
@@ -144,13 +141,13 @@
                     <div class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
                         <h4 class="text-[10px] font-black text-teal-500 uppercase tracking-widest mb-4">Project Metadata</h4>
                         <p class="text-[11px] text-slate-400 mb-2"><b>Prompt Engineer:</b> Emeliza "Liz" Ducos</p>
-                        <p class="text-[11px] text-slate-400 mb-2"><b>Engine:</b> SVG Animata v12.3</p>
-                        <p class="text-[11px] text-slate-400"><b>Stability:</b> Fixed 100% Load Reliability</p>
+                        <p class="text-[11px] text-slate-400 mb-2"><b>Engine:</b> SVG Animata v12.5 (Iconify Optimized)</p>
+                        <p class="text-[11px] text-slate-400"><b>CDN Service:</b> api.iconify.design</p>
                     </div>
                     <div class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
-                        <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Disclaimer</h4>
+                        <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Legal Disclaimer</h4>
                         <p class="text-[10px] text-slate-500 leading-snug uppercase">
-                            All third-party logos used are trademarks of their respective owners. SVG Animata is a technical demonstration. No commercial usage is intended.
+                            Assets retrieved via Iconify are trademarks of their respective owners. No affiliation or commercial endorsement is implied. Showcase intended for technical motion demonstration only.
                         </p>
                     </div>
                 </div>
