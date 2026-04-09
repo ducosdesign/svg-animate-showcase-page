@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motion Labs | SVG Displacement Showcase</title>
+    <title>SVG Animata Showcase | Kinetic Motion</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
@@ -28,23 +28,35 @@
             padding: 2rem;
         }
 
-        /* SVG Animata Engine v8.5 Keyframes */
-        .showcase-svg { width: 220px; height: 220px; display: block; object-fit: contain; }
+        /* SVG Animata Engine v8.5 Keyframes - 10 Core FX */
+        .showcase-svg { width: 200px; height: 200px; display: block; object-fit: contain; }
         
-        @keyframes svga-plasma { 0%, 100% { filter: hue-rotate(0deg) brightness(1); } 50% { filter: hue-rotate(180deg) brightness(1.5) drop-shadow(0 0 20px #2dd4bf); } }
-        @keyframes svga-vortex { 0% { transform: rotate(0deg) scale(1); filter: blur(0px); } 50% { transform: rotate(180deg) scale(0.2); filter: blur(8px); } 100% { transform: rotate(360deg) scale(1); filter: blur(0px); } }
-        @keyframes svga-glitch { 0% { clip-path: inset(10% 0 80% 0); transform: translate(-5px); } 20% { clip-path: inset(80% 0 5% 0); transform: translate(5px); } 40% { clip-path: none; } }
-        @keyframes svga-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-30px) rotate(5deg); } }
+        @keyframes svga-plasma { 0%, 100% { filter: hue-rotate(0deg) contrast(1.2); } 50% { filter: hue-rotate(270deg) contrast(2) drop-shadow(0 0 20px #2dd4bf); } }
+        @keyframes svga-vortex { 0% { transform: rotate(0deg) scale(1); filter: blur(0px); } 50% { transform: rotate(180deg) scale(0.1); filter: blur(10px); } 100% { transform: rotate(360deg) scale(1); filter: blur(0px); } }
+        @keyframes svga-glitch { 0% { clip-path: inset(43% 0 30% 0); transform: translate(-8px, 4px); } 15% { clip-path: inset(10% 0 60% 0); transform: translate(8px, -4px); } 30% { clip-path: none; } }
+        @keyframes svga-neon { from { filter: drop-shadow(0 0 2px #2dd4bf); } to { filter: drop-shadow(0 0 40px #2dd4bf); } }
+        @keyframes svga-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+        @keyframes svga-electric { 0%, 100% { filter: brightness(1); } 10%, 90% { filter: brightness(3) drop-shadow(0 0 15px white); transform: skewX(-15deg); } 20%, 80% { transform: skewX(15deg); } }
+        @keyframes svga-slice { 0% { clip-path: inset(0 0 0 0); } 50% { clip-path: inset(0 50% 0 0); transform: translateX(-30px); } 100% { clip-path: inset(0 0 0 0); } }
+        @keyframes svga-orbit { from { transform: perspective(500px) rotate3d(1, 1, 0, 0deg); } to { transform: perspective(500px) rotate3d(1, 1, 0, 360deg); } }
+        @keyframes svga-bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-45px); } 60% { transform: translateY(-20px); } }
+        @keyframes svga-prism { 0% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(180deg) saturate(4); } 100% { filter: hue-rotate(360deg); } }
 
-        .fx-plasma { animation: svga-plasma 4s infinite linear; }
-        .fx-vortex { animation: svga-vortex 5s infinite ease-in-out; }
-        .fx-glitch { animation: svga-glitch 0.5s infinite alternate-reverse; }
+        /* Animation Classes */
+        .fx-plasma { animation: svga-plasma 3s infinite; }
+        .fx-vortex { animation: svga-vortex 4s infinite ease-in-out; }
+        .fx-glitch { animation: svga-glitch 1s infinite linear; }
+        .fx-neon { animation: svga-neon 1.5s infinite alternate ease-in-out; }
         .fx-float { animation: svga-float 3s infinite ease-in-out; }
+        .fx-electric { animation: svga-electric 2s infinite linear; }
+        .fx-slice { animation: svga-slice 2.5s infinite ease-in-out; }
+        .fx-orbit { animation: svga-orbit 6s infinite linear; }
+        .fx-bounce { animation: svga-bounce 2s infinite; }
+        .fx-prism { animation: svga-prism 4s infinite linear; }
 
-        .bg-mesh {
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(175,100%,50%,0.05) 0, transparent 50%), 
-                radial-gradient(at 50% 100%, hsla(240,100%,50%,0.05) 0, transparent 50%);
+        .bg-gradient-mesh {
+            background: radial-gradient(circle at 20% 30%, rgba(45, 212, 191, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
         }
     </style>
 </head>
@@ -52,90 +64,79 @@
 
     <div class="viewport-stack">
         
-        <section class="page bg-slate-950 bg-mesh">
-            <nav class="absolute top-10 w-full px-12 flex justify-between items-center">
-                <span class="font-black tracking-tighter text-xl">MOTION<span class="text-teal-500">LABS</span></span>
-                <span class="text-[10px] font-bold py-1 px-3 border border-slate-800 rounded-full">BUILD v2.0.4</span>
+        <section class="page bg-slate-950 bg-gradient-mesh">
+            <nav class="absolute top-8 w-full px-12 flex justify-between items-center z-50">
+                <span class="font-black text-2xl tracking-tighter italic text-teal-400">SVG ANIMATA</span>
+                <a href="https://animation-generator-ten.vercel.app/" target="_blank" class="bg-teal-600 hover:bg-teal-500 text-white text-[10px] font-bold py-2 px-6 rounded-full transition-all">TRY IT NOW →</a>
             </nav>
 
-            <div class="text-center z-10">
-                <div class="relative inline-block mb-10">
-                    <div class="absolute inset-0 bg-teal-500/20 blur-3xl rounded-full"></div>
-                    <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="showcase-svg fx-float relative">
+            <div class="text-center">
+                <div class="mb-10 inline-block p-8 bg-slate-900/50 rounded-[40px] border border-slate-800 shadow-2xl">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-neon">
                 </div>
-                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6">KINETIC <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">DNA</span></h1>
-                <p class="text-slate-500 font-medium max-w-xl mx-auto text-lg leading-relaxed">
-                    A high-performance animation framework for the modern web. Lightweight, scalable, and purely CSS-driven.
-                </p>
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 italic">KINETIC ENGINE</h1>
+                <p class="text-slate-500 font-mono text-sm uppercase tracking-[0.4em]">Next Gen SVG Motion v8.5</p>
             </div>
-
-            <div class="absolute bottom-10 flex flex-col items-center gap-2 opacity-30">
-                <span class="text-[10px] font-bold uppercase tracking-widest">Next Chapter</span>
-                <div class="w-px h-12 bg-gradient-to-b from-teal-500 to-transparent"></div>
-            </div>
+            <div class="absolute bottom-10 animate-bounce text-slate-700 text-[10px] font-black uppercase tracking-widest">Scroll Down</div>
         </section>
 
         <section class="page bg-slate-900">
-            <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
-                <div class="p-12 bg-slate-950 rounded-[40px] border border-slate-800 flex justify-center shadow-2xl">
-                    <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="showcase-svg fx-plasma">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl w-full">
+                <div class="bg-slate-950 p-12 rounded-3xl border border-slate-800 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-plasma mx-auto mb-6">
+                    <h3 class="text-teal-400 font-bold uppercase tracking-widest text-xs">Plasma Pulse</h3>
                 </div>
-                <div class="space-y-6">
-                    <h2 class="text-4xl font-bold">Plasma <span class="text-teal-400">Shift</span></h2>
-                    <p class="text-slate-400 text-lg">
-                        Our plasma engine calculates hue-rotation and contrast buffers in real-time, allowing vector assets to react to environmental lighting conditions without heavy JavaScript overhead.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="h-1 flex-1 bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-teal-500 w-3/4"></div>
-                        </div>
-                        <span class="text-[10px] font-bold text-slate-500">75% EFFICIENCY</span>
-                    </div>
+                <div class="bg-slate-950 p-12 rounded-3xl border border-slate-800 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-vortex mx-auto mb-6">
+                    <h3 class="text-teal-400 font-bold uppercase tracking-widest text-xs">Vortex Spin</h3>
                 </div>
             </div>
         </section>
 
         <section class="page bg-slate-950">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold mb-4">Neural Glitch</h2>
-                <p class="text-slate-500">Simulating data corruption through hardware-accelerated clipping.</p>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-8">
-                <div class="group relative p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-teal-500 transition-all">
-                    <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-32 h-32 fx-glitch">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl w-full">
+                <div class="bg-slate-900 p-12 rounded-3xl border border-slate-800 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-glitch mx-auto mb-6">
+                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Neural Glitch</h3>
                 </div>
-                <div class="group relative p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-teal-500 transition-all">
-                    <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-32 h-32 fx-vortex">
+                <div class="bg-slate-900 p-12 rounded-3xl border border-slate-800 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-electric mx-auto mb-6">
+                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Electric Storm</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="page bg-slate-900">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl w-full">
+                <div class="bg-slate-950 p-12 rounded-3xl border border-slate-800 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-slice mx-auto mb-6">
+                    <h3 class="text-teal-400 font-bold uppercase tracking-widest text-xs">Deconstruct Slice</h3>
+                </div>
+                <div class="bg-slate-950 p-12 rounded-3xl border border-slate-800 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" class="showcase-svg fx-orbit mx-auto mb-6">
+                    <h3 class="text-teal-400 font-bold uppercase tracking-widest text-xs">3D Orbit</h3>
                 </div>
             </div>
         </section>
 
         <section class="page bg-black">
             <div class="max-w-3xl w-full text-center">
-                <div class="mb-12 inline-block p-4 border border-slate-800 rounded-2xl">
-                    <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-16 h-16 opacity-20 grayscale">
-                </div>
-                
-                <h3 class="text-2xl font-bold mb-6 text-slate-200">Laboratory Session Complete</h3>
-                
-                <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl text-left relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-5">
-                         <img src="https://lizducos.princegeorgedesign.com/wp-content/uploads/2026/02/dd3.svg" class="w-20 h-20">
-                    </div>
-                    <h4 class="text-xs font-black text-teal-500 uppercase tracking-widest mb-4">Legal Disclaimer & Attribution</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                        This website is a purely technical showcase created to demonstrate the capabilities of CSS-based vector animations. 
-                    </p>
-                    <p class="text-[10px] text-slate-600 leading-snug uppercase font-bold italic">
-                        Notice: The logo asset used throughout this page is for demonstration purposes only. This page and its creator are NOT affiliated with, authorized by, endorsed by, or in any way officially connected with the owner of the logo or any of its subsidiaries or its affiliates. All product and company names are trademarks™ or registered® trademarks of their respective holders.
-                    </p>
-                </div>
+                <h2 class="text-4xl font-black mb-8 italic">BUILD YOUR OWN</h2>
+                <a href="https://animation-generator-ten.vercel.app/" target="_blank" 
+                   class="inline-block bg-teal-600 hover:bg-white hover:text-black text-white px-12 py-5 rounded-full font-black tracking-widest transition-all mb-16 shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+                    LAUNCH ANIMATOR →
+                </a>
 
-                <footer class="mt-16 flex flex-col gap-4 items-center">
-                    <a href="#top" class="text-xs font-bold text-teal-500 hover:tracking-[0.2em] transition-all uppercase">Replay Showcase</a>
-                    <p class="text-[9px] text-slate-700 tracking-tighter">© 2026 MOTION LABS ARCHIVE. ALL RIGHTS RESERVED.</p>
-                </footer>
+                <div class="bg-slate-950 border border-slate-900 p-8 rounded-3xl text-left">
+                    <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">LEGAL NOTICE & DISCLAIMER</h4>
+                    <p class="text-[11px] text-slate-600 leading-relaxed mb-4">
+                        This site is a technical showcase for the **SVG Animata** engine. The SVG logo used throughout this demonstration is for visual reference only.
+                    </p>
+                    <p class="text-[10px] text-slate-700 leading-snug">
+                        **Disclaimer:** This page is not affiliated with, endorsed by, or sponsored by the W3C or the creators of the SVG format. No commercial usage of third-party brand assets is intended. This project is provided for demonstration and educational purposes under an open-source license.
+                    </p>
+                </div>
+                <footer class="mt-12 opacity-20 text-[9px] font-bold tracking-[0.5em] uppercase">SVG ANIMATA ARCHIVE 2026</footer>
             </div>
         </section>
 
